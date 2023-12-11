@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 12:07:19 by nileempo          #+#    #+#             */
-/*   Updated: 2023/08/15 15:42:26 by nileempo         ###   ########.fr       */
+/*   Updated: 2023/12/05 16:52:15 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 //check the nbr of args
 //check open the file
 
-//check the number of arguments
 int	check_argc(int argc)
 {
     if (argc != 5)
@@ -27,12 +26,28 @@ int	check_argc(int argc)
     return (0);
 }
 
-//check the opening of the file
-int	check_open(char *file, int flags)
+//check if the file exist and can be readed
+int check_file(char *file)
+{
+    if (access(file, F_OK) == -1)
+    {
+        perror("The file doesn't exist\n");
+        exit(EXIT_FAILURE);
+    }
+    else if (access(file, R_OK) == -1)
+    {
+        perror("The file can't be read");
+        exit(EXIT_FAILURE);
+    }
+    return (0);
+}
+
+//Open the file and check if i can read and write in it
+int	check_open(char *file, int flag)
 {
     int fd;
 
-    fd = open(file, flags);
+    fd = open(file, flag);
     if (fd == -1)
     {
         perror("Error : Open function returned -1.\n");
