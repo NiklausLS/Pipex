@@ -1,17 +1,21 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    Makepipex                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/17 11:25:21 by nileempo          #+#    #+#              #
-#    Updated: 2023/07/27 11:25:03 by nileempo         ###   ########.fr        #
+#    Updated: 2023/12/11 14:39:55 by nileempo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS = main.c \
 	checkers/input_error.c \
+	checkers/cmd_error.c \
+	utils/process.c \
+
+INC_PATH = ./includes
 
 RESET = \033[0m
 GREEN = \033[32m
@@ -32,19 +36,25 @@ RM = rm -f
 OBJS = $(SRCS:.c=.o)
 
 .c.o: $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
-	@echo "$(GREEN)--- Making objets files : $(YELLOW)$@$(RESET)"
-$(NAME): $(OBJS)
-	@echo "$(GREEN)--- Making the executable : $(YELLOW)$(NAME)$(RESET)"
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) -c $< -o $@ -I $(INC_PATH)
+	@echo "$(GREEN)--- Making objets pipexs : $(YELLOW)$@$(RESET)"
 
-all: $(NAME)
+$(NAME): $(OBJS) lib
+	@echo "$(GREEN)--- Making the executable : $(YELLOW)$(NAME)$(RESET)"
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) LIBFT/libft.a
+
+lib:
+	make -C ./LIBFT
+
+all: lib $(NAME)
 
 clean:
-	$(RM) $(OBJS)
-	@echo "$(RED)--- Objects files $(YELLOW)$(OBJS) $(RED)have been deleted.$(RESET)"
+	make clean -C ./LIBFT
+	$(RM) $(OBJS) $(LIBFT)
+	@echo "$(RED)--- Objects pipexs $(YELLOW)$(OBJS) $(RED)have been deleted.$(RESET)"
 
 fclean: clean
+	make fclean -C ./LIBFT
 	$(RM) $(NAME)
 	@echo "$(RED)--- The executable $(YELLOW)$(NAME) $(RED)have been deleted.$(RESET)"
 
