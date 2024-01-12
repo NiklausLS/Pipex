@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 01:29:35 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/12 22:50:44 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/12 23:15:44 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ void	child_process(t_p data, char *cmd, char **envp)
 	dup2(data.infile_fd, 0);
 	dup2(data.fd[1], 1);
 	close(data.fd[0]);
-
-	printf("data.path of %s = %s\n", cmd1[0], path);
 	execve(path, cmd1, envp);	
 }
 
@@ -59,6 +57,5 @@ void	parent_process(t_p data, char *cmd, char **envp)
 	dup2(data.outfile_fd, 1);
 	dup2(data.fd[0], 0);
 	close(data.fd[1]);
-	printf("path = %s\n", path);
 	execve(path, cmd2, envp);
 }
