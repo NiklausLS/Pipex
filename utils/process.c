@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 01:29:35 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/12 23:19:47 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/13 02:34:47 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ void	child_process(t_p data, char *cmd, char **envp)
 	
 	puts("CHILD PROCESS\n");
 	cmd1 = ft_split(cmd, ' ');
+	if (cmd1[0] == NULL)
+	{
+		printf("cmd1 is empty\n");
+		exit(EXIT_FAILURE);
+	}
 	int i = 0;
 	while (cmd1[i])
 	{
@@ -46,6 +51,11 @@ void	parent_process(t_p data, char *cmd, char **envp)
 	
 	puts("PARENT PROCESS\n");
 	cmd2 = ft_split(cmd, ' ');
+	if (cmd2[0] == NULL)
+	{
+		printf("cmd2 is empty\n");
+		exit(EXIT_FAILURE);
+	}
 	int i = 0;
 	while (cmd2[i])
 	{
