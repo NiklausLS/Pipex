@@ -13,7 +13,7 @@
 SRCS = main.c \
 	checkers/input_error.c \
 	checkers/cmd_error.c \
-	utils/process.c \
+	process/process.c \
 
 INC_PATH = ./includes
 

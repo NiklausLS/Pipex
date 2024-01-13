@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 19:25:14 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/13 16:22:31 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/13 16:57:25 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,20 @@ char	**get_env_path(char **envp)
 	char	*path;
 	char	*tmp;
 	int		i;
+	char	**env;
 
 	while (ft_strncmp(*envp, "PATH=", 5))
 		envp++;
 	path = *envp + 5;
-	envp = ft_split(path, ':');
+	env = ft_split(path, ':');
 	i = 0;
-	while (envp[i])
+	while (env[i])
 	{
-		tmp = ft_strjoin(envp[i], "/");
-		envp[i] = tmp;
+		tmp = ft_strjoin(env[i], "/");
+		env[i] = tmp;
 		i++;
 	}
-	return (envp);
+	return (env);
 }
 
 //check env_path to find cmd repertory
