@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 19:25:14 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/12 22:46:48 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/13 02:42:00 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ char	**get_env_path(char **envp)
 	path = *envp + 5;
 	envp = ft_split(path, ':');
 	i = 0;
-	puts("get env path");
+	//puts("get env path");
 	while (envp[i])
 	{
 		tmp = ft_strjoin(envp[i], "/");
 		envp[i] = tmp;
-		printf("envp[%d] = %s\n", i, envp[i]);
+		//printf("envp[%d] = %s\n", i, envp[i]);
 		i++;
 	}
 	return (envp);
@@ -64,10 +64,10 @@ char	*get_path(char *cmd, char **envp)
 	int		i;
 
 	i = 0;
-	puts("get_path");
+	//puts("get_path");
 	while (envp[i])
 	{
-		printf("envp[%d] =  %s\n", i, envp[i]);
+		//printf("envp[%d] =  %s\n", i, envp[i]);
 		path = ft_strjoin(envp[i], cmd);
 		if (access(path, F_OK) == 0)
 			return (path);
