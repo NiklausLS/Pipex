@@ -6,14 +6,14 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 11:42:45 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/13 17:01:41 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/14 19:53:49 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PIPEX_H
 # define PIPEX_H
 
-# include "../LIBFT/libft.h"
+# include "../LIBFT/includes/libft.h"
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>

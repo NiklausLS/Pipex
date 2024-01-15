@@ -26,6 +26,7 @@ SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 	  ft_calloc.c \
 	  ft_split.c \
 
+INC_PATH = ./includes
 
 CC = clang
 
@@ -35,10 +36,12 @@ FLAGS = -Wall -Werror -Wextra
 
 NAME = libft.a
 
+HEADER = libft.h
+
 OBJ = $(SRC:.c=.o)
 
-.c.o:
-	$(CC) $(FLAGS) -g -c $< -o $(<:.c=.o)
+.c.o: $(HEADER)
+	$(CC) $(FLAGS) -c $< -o $@ -I $(INC_PATH)
 
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
