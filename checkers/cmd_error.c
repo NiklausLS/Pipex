@@ -6,22 +6,11 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 19:25:14 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/13 16:57:25 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/16 17:41:17 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
-
-/*
-void	*check_cmd(char *cmd)
-{
-	char	**check;
-
-	check = ft_split(cmd, ' ');
-	if (cmd[0] == NULL)
-		exit(EXIT_FAILURE);
-	free(check);
-}*/
 
 //get path from **envp by checking 5 first char 
 //split the result and add / at the end
@@ -57,7 +46,7 @@ char	*get_path(char *cmd, char **envp)
 	while (envp[i])
 	{
 		path = ft_strjoin(envp[i], cmd);
-		if (access(path, F_OK) == 0)
+		if (access(path, F_OK | X_OK) == 0)
 			return (path);
 		else
 			free(path);
