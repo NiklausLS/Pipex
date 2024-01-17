@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 19:25:14 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/16 17:41:17 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/17 21:22:20 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	**get_env_path(char **envp)
 	int		i;
 	char	**env;
 
+	if (!envp)
+		return (NULL);
 	while (ft_strncmp(*envp, "PATH=", 5))
 		envp++;
 	path = *envp + 5;
@@ -29,6 +31,7 @@ char	**get_env_path(char **envp)
 	while (env[i])
 	{
 		tmp = ft_strjoin(env[i], "/");
+		free(env[i]);
 		env[i] = tmp;
 		i++;
 	}
@@ -46,6 +49,8 @@ char	*get_path(char *cmd, char **envp)
 	while (envp[i])
 	{
 		path = ft_strjoin(envp[i], cmd);
+		if (!path)
+			return (NULL);
 		if (access(path, F_OK | X_OK) == 0)
 			return (path);
 		else

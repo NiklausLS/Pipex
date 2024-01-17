@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 01:29:35 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/13 16:51:03 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/17 21:38:10 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ void	child_process(t_p data, char *cmd, char **envp)
 	char	**cmd1;
 
 	cmd1 = ft_split(cmd, ' ');
-	if (cmd1[0] == NULL)
+	if (cmd1 == NULL || cmd1[0] == NULL)
 		exit(EXIT_FAILURE);
 	path = get_path(cmd1[0], envp);
+	if (path == NULL)
+		exit(EXIT_FAILURE);
 	dup2(data.infile_fd, 0);
 	dup2(data.fd[1], 1);
 	close(data.fd[0]);
@@ -33,6 +35,8 @@ void	child_process(t_p data, char *cmd, char **envp)
 		perror("Error : execve in child process failed\n");
 		exit(EXIT_FAILURE);
 	}
+	free(path);
+	free(cmd1);
 }
 
 //takes stdout and redirect it to my new outfile fd
@@ -44,9 +48,11 @@ void	parent_process(t_p data, char *cmd, char **envp)
 	char	**cmd2;
 
 	cmd2 = ft_split(cmd, ' ');
-	if (cmd2[0] == NULL)
+	if (cmd2 == NULL | cmd2[0] == NULL)
 		exit(EXIT_FAILURE);
 	path = get_path(cmd2[0], envp);
+	if (path == NULL)
+		exit(EXIT_FAILURE);
 	dup2(data.outfile_fd, 1);
 	dup2(data.fd[0], 0);
 	close(data.fd[1]);
@@ -55,4 +61,6 @@ void	parent_process(t_p data, char *cmd, char **envp)
 		perror("Error : execve in parent process failed\n");
 		exit(EXIT_FAILURE);
 	}
+	free(path);
+	free(cmd2);
 }
