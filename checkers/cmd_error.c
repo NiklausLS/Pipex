@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 19:25:14 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/17 23:42:37 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/18 00:02:23 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*get_path(char *cmd, char **envp)
 	i = 0;
 	cmds = ft_split(cmd, ' ');
 	if(access(cmds[0], F_OK | X_OK) == 0)
-		return(ft_strdup(cmds[0]));
+		return(cmds[0]);
 	while (envp[i])
 	{
 		path = ft_strjoin(envp[i], cmd);
