@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 01:29:35 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/17 23:43:45 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/18 18:59:07 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	child_process(t_p data, char *cmd, char **env)
 	path = get_path(cmd1[0], env);
 	if (path == NULL)
 	{
-		perror("Error : cmd1 not found\n");
+		perror("Error : first command not found\n");
 		exit(EXIT_FAILURE);
 	}
 	dup2(data.infile_fd, 0);
@@ -56,7 +56,7 @@ void	parent_process(t_p data, char *cmd, char **env)
 	path2 = get_path(cmd2[0], env);
 	if (path2 == NULL && path2 != cmd2[0])
 	{
-		perror("Error : cmd2 not found\n");
+		perror("Error : second command not found\n");
 		exit(EXIT_FAILURE);
 	}
 	dup2(data.outfile_fd, 1);
