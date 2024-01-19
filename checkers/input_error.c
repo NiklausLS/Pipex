@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 12:07:19 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/09 16:25:07 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/19 16:15:33 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	check_argc(int argc)
 {
 	if (argc != 5)
 	{
-		perror("Error : argument count is wrong.\n");
+		write(2, "Error : argument count is wrong.\n", 33);
 		exit(EXIT_FAILURE);
 	}
 	return (0);
@@ -31,7 +31,7 @@ int	check_infile(char *file)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 	{
-		perror("Error : infile.\n");
+		write(2, "Error : open infile\n", 20);
 		exit(EXIT_FAILURE);
 	}
 	return (fd);
@@ -45,7 +45,7 @@ int	check_outfile(char *file)
 	fd = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	if (fd == -1)
 	{
-		perror("Error : outfile");
+		write(2, "Error : open outfile\n", 21);
 		exit(EXIT_FAILURE);
 	}
 	return (fd);

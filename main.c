@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 11:41:21 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/13 21:31:16 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/19 16:12:45 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ int	main(int argc, char **argv, char **envp)
 	env = get_env_path(envp);
 	if (pipe(data.fd) == -1)
 	{
-		perror("Error : pipe\n");
+		write(2, "Error : pipe\n", 13);
 		exit(EXIT_FAILURE);
 	}
 	data.pid = fork();
 	if (data.pid == -1)
 	{
-		perror("Error : pid\n");
+		write(2, "Error : pid\n", 12);
 		exit(EXIT_FAILURE);
 	}
 	if (data.pid == 0)

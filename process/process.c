@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 01:29:35 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/18 18:59:07 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/19 16:11:49 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void	child_process(t_p data, char *cmd, char **env)
 	path = get_path(cmd1[0], env);
 	if (path == NULL)
 	{
-		perror("Error : first command not found\n");
+		write(2, "Command not found\n", 18);
+		free(cmd1);
 		exit(EXIT_FAILURE);
 	}
 	dup2(data.infile_fd, 0);
@@ -35,11 +36,9 @@ void	child_process(t_p data, char *cmd, char **env)
 	close(data.fd[0]);
 	if (execve(path, cmd1, env) == -1)
 	{
-		perror("Error : execve in child process failed\n");
+		write(2, "Error : execve\n", 16);
 		exit(EXIT_FAILURE);
 	}
-	free(path);
-	free(cmd1);
 }
 
 //takes stdout and redirect it to my new outfile fd
@@ -56,7 +55,8 @@ void	parent_process(t_p data, char *cmd, char **env)
 	path2 = get_path(cmd2[0], env);
 	if (path2 == NULL && path2 != cmd2[0])
 	{
-		perror("Error : second command not found\n");
+		write(2, "Command not found\n", 18);
+		free(cmd2);
 		exit(EXIT_FAILURE);
 	}
 	dup2(data.outfile_fd, 1);
@@ -64,9 +64,7 @@ void	parent_process(t_p data, char *cmd, char **env)
 	close(data.fd[1]);
 	if (execve(path2, cmd2, env) == -1)
 	{
-		perror("Error : execve in parent process failed\n");
+		write(2, "Error : execve\n", 16);
 		exit(EXIT_FAILURE);
 	}
-	free(path2);
-	free(cmd2);
 }

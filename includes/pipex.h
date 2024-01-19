@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 11:42:45 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/17 23:28:34 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/19 16:14:29 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "../LIBFT/includes/libft.h"
 # include <unistd.h>
 # include <stdio.h>
+# include <errno.h>
 # include <stdlib.h>
 # include <fcntl.h>
 # include <sys/wait.h>

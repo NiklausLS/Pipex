@@ -29,7 +29,7 @@ HEADER = pipex.h
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra
 
 RM = rm -f
 
