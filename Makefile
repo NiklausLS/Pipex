@@ -39,14 +39,12 @@ OBJS = $(SRCS:.c=.o)
 	$(CC) $(CFLAGS) -c $< -o $@ -I $(INC_PATH)
 	@echo "$(GREEN)--- Making objets pipexs : $(YELLOW)$@$(RESET)"
 
-$(NAME): $(OBJS) lib
+$(NAME): $(OBJS)
+	make -C ./LIBFT
 	@echo "$(GREEN)--- Making the executable : $(YELLOW)$(NAME)$(RESET)"
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) LIBFT/libft.a
 
-lib:
-	make -C ./LIBFT
-
-all: lib $(NAME)
+all: $(NAME)
 
 clean:
 	make clean -C ./LIBFT
