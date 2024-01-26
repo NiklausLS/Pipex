@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 19:25:14 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/26 18:17:15 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/27 00:21:26 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,12 @@ int	*check_path(char *path, char **cmds)
 	return (0);
 }
 
-//check if the command is not empty and if it's not starting with /
+//check if the command is not empty and if it start with / compare it the the path
 int		*check_cmds(char *path, char **cmds)
 {
 	if (cmds[0] == NULL)
 		exit(EXIT_FAILURE);
-	if (ft_strncmp(cmds[0], path, ft_strlen(path)) != 0)
+	if (cmds[0][0] == '/' && ft_strncmp(cmds[0], path, ft_strlen(path)))
 	{
 		write(2, "Command not found\n", 18);
 		free(cmds);
