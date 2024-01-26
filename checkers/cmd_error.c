@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 19:25:14 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/25 00:31:02 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/26 16:10:06 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@ char	**get_env_path(char **envp)
 	int		i;
 	char	**env;
 
-	if (envp[0] == NULL)
+	if (envp == NULL || envp[0] == NULL)
 		exit (EXIT_FAILURE);
-	while (ft_strncmp(*envp, "PATH=", 5))
+	while (*envp != NULL && ft_strncmp(*envp, "PATH=", 5) != 0)
 		envp++;
+	if (*envp == NULL)
+		return (NULL);
 	path = *envp + 5;
 	env = ft_split(path, ':');
 	i = 0;
@@ -50,6 +52,8 @@ char	*get_path(char *cmd, char **envp)
 	cmds = ft_split(cmd, ' ');
 	if (access(cmds[0], F_OK | X_OK) == 0)
 		return (cmds[0]);
+	if (envp == NULL || envp[0] == NULL)
+		return (NULL);
 	while (envp[i])
 	{
 		path = ft_strjoin(envp[i], cmd);
