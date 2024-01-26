@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 19:25:14 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/26 16:10:06 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/26 18:17:15 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,30 @@ char	*get_path(char *cmd, char **envp)
 		i++;
 	}
 	return (NULL);
+}
+
+//check if the path exist
+int	*check_path(char *path, char **cmds)
+{
+	if (path == NULL)
+	{
+		write(2, "Command not found\n", 18);
+		free(cmds);
+		exit(EXIT_FAILURE);
+	}
+	return (0);
+}
+
+//check if the command is not empty and if it's not starting with /
+int		*check_cmds(char *path, char **cmds)
+{
+	if (cmds[0] == NULL)
+		exit(EXIT_FAILURE);
+	if (ft_strncmp(cmds[0], path, ft_strlen(path)) != 0)
+	{
+		write(2, "Command not found\n", 18);
+		free(cmds);
+		exit(EXIT_FAILURE);
+	}
+	return (0);
 }

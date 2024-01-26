@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 01:29:35 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/19 16:11:49 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/26 18:20:58 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,9 @@ void	child_process(t_p data, char *cmd, char **env)
 	char	**cmd1;
 
 	cmd1 = ft_split(cmd, ' ');
-	if (cmd1[0] == NULL)
-		exit(EXIT_FAILURE);
 	path = get_path(cmd1[0], env);
-	if (path == NULL)
-	{
-		write(2, "Command not found\n", 18);
-		free(cmd1);
-		exit(EXIT_FAILURE);
-	}
+	check_path(path, cmd1);
+	check_cmds(path, cmd1);
 	dup2(data.infile_fd, 0);
 	dup2(data.fd[1], 1);
 	close(data.fd[0]);
@@ -50,15 +44,9 @@ void	parent_process(t_p data, char *cmd, char **env)
 	char	**cmd2;
 
 	cmd2 = ft_split(cmd, ' ');
-	if (cmd2[0] == NULL)
-		exit(EXIT_FAILURE);
 	path2 = get_path(cmd2[0], env);
-	if (path2 == NULL && path2 != cmd2[0])
-	{
-		write(2, "Command not found\n", 18);
-		free(cmd2);
-		exit(EXIT_FAILURE);
-	}
+	check_path(path2, cmd2);
+	check_cmds(path2, cmd2);
 	dup2(data.outfile_fd, 1);
 	dup2(data.fd[0], 0);
 	close(data.fd[1]);
