@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 19:25:14 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/27 00:41:54 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/27 16:20:32 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	**get_env_path(char **envp)
 	char	**env;
 
 	if (envp == NULL || envp[0] == NULL)
-		exit (EXIT_FAILURE);
+		return (NULL);
 	while (*envp != NULL && ft_strncmp(*envp, "PATH=", 5) != 0)
 		envp++;
 	if (*envp == NULL)
