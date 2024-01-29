@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 11:41:21 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/29 00:49:57 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/29 01:28:40 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char **argv, char **envp)
 	init_cmds(argv, &data);
 	data.infile_fd = check_infile(argv[1]);
 	data.outfile_fd = check_outfile(argv[4]);
-	env = get_env_path(envp, &data);
+	env = get_env_path(envp);
 	if (pipe(data.fd) == -1)
 	{
 		write(2, "Error : pipe\n", 13);

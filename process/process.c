@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 01:29:35 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/29 01:25:07 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/29 01:42:18 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	child_process(t_p data, char **env)
 
 	check_cmds(data.cmd1);
 	path = get_path(data.cmd1[0], env);
+	check_cmds(data.cmd1);
 	check_path(path, data.cmd1);
 	dup2(data.infile_fd, 0);
 	dup2(data.fd[1], 1);
@@ -40,9 +41,10 @@ void	parent_process(t_p data, char **env)
 {
 	char	*path2;
 
-	check_cmds(data.cmd2);
+	//check_cmds(data.cmd2);
 	path2 = get_path(data.cmd2[0], env);
 	check_path(path2, data.cmd2);
+	check_cmds(data.cmd2);
 	dup2(data.outfile_fd, 1);
 	dup2(data.fd[0], 0);
 	close(data.fd[1]);

@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 19:25:14 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/29 01:23:04 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/29 01:46:38 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	**get_env_path(char **envp)
 	if (*envp == NULL)
 		return (NULL);
 	path = *envp + 5;
-	//data->path = ft_strdup(path);
+	//data.path = ft_strdup(path);
 	env = ft_split(path, ':');
 	i = 0;
 	while (env[i])
@@ -47,12 +47,12 @@ char	*get_path(char *cmd, char **envp)
 {
 	char	*path;
 	int		i;
-	char	**cmds;
+	//char	**cmds;
 
 	i = 0;
-	cmds = ft_split(cmd, ' ');
-	if (access(cmds[0], F_OK | X_OK) == 0)
-		return (cmds[0]);
+	//cmds = ft_split(cmd, ' ');
+	if (access(&cmd[0], F_OK | X_OK) == 0)
+		return (&cmd[0]);
 	if (envp == NULL || envp[0] == NULL)
 		return (NULL);
 	while (envp[i])
@@ -69,6 +69,15 @@ char	*get_path(char *cmd, char **envp)
 //check if the path exist
 void	check_path(char *path, char **cmds)
 {
+	if (path)
+	{
+		if (cmds[0][0] == '/' && ft_strncmp(cmds[0], path, ft_strlen(path)) != 0)
+		{
+			write(2, "Command not found\n", 18);
+			free(cmds);
+			exit(EXIT_FAILURE);
+		}
+	}
 	if (path == NULL)
 	{
 		write(2, "Command not found\n", 18);
@@ -86,11 +95,3 @@ void	check_cmds(char **cmds)
 		exit(EXIT_FAILURE);
 	}
 }
-/*
-	if (cmds[0][0] == '/' && ft_strncmp(cmds[0], path, ft_strlen(path)) != 0)
-	{
-		write(2, "Command not found\n", 18);
-		free(cmds);
-		exit(EXIT_FAILURE);
-	}
-}*/
