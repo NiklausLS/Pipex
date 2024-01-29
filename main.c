@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 11:41:21 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/19 16:12:45 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/29 00:49:57 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ int	main(int argc, char **argv, char **envp)
 	char	**env;
 
 	check_argc(argc);
+	init_cmds(argv, &data);
 	data.infile_fd = check_infile(argv[1]);
 	data.outfile_fd = check_outfile(argv[4]);
-	env = get_env_path(envp);
+	env = get_env_path(envp, &data);
 	if (pipe(data.fd) == -1)
 	{
 		write(2, "Error : pipe\n", 13);
@@ -33,8 +34,7 @@ int	main(int argc, char **argv, char **envp)
 		exit(EXIT_FAILURE);
 	}
 	if (data.pid == 0)
-		child_process(data, argv[2], env);
-	else
-		parent_process(data, argv[3], env);
+		child_process(data, env);
+	parent_process(data, env);
 	return (0);
 }

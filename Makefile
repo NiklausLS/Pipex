@@ -11,6 +11,7 @@
 # **************************************************************************** #
 
 SRCS = main.c \
+	commands.c \
 	checkers/input_error.c \
 	checkers/cmd_error.c \
 	process/process.c \
@@ -29,7 +30,7 @@ HEADER = pipex.h
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra #-fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -fsanitize=address
 
 RM = rm -f
 
