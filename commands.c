@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 22:36:49 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/30 15:59:14 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/30 16:12:01 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,19 +48,19 @@ void	free_cmds(t_p *data)
 	}
 }
 
-void	free_env(char **env)
+void	free_tab(char **tab)
 {
 	int	i;
 
 	i = 0;
-	if (env != NULL)
+	if (tab != NULL)
 	{
-		while (env[i])
+		while (tab[i])
 		{
-			free(env[i]);
+			free(tab[i]);
 			i++;
 		}
-		free(env);
+		free(tab);
 	}
 }
 

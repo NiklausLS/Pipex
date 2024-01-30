@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 19:25:14 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/30 14:16:37 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/30 16:22:48 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,10 @@ char	*get_path(char *cmd, char **envp)
 		write(2, "command not found\n", 18);
 		exit(EXIT_FAILURE);
 	}
+	check_if_dir(cmd);
 	if (access(&cmd[0], F_OK | X_OK) == 0)
 		return (&cmd[0]);
-	check_cmds(&cmd);
+	check_cmd(cmd);
 	if (envp == NULL || envp[0] == NULL)
 		return (NULL);
 	while (envp[i])
@@ -70,27 +71,27 @@ char	*get_path(char *cmd, char **envp)
 }
 
 //check if the path exist
-void	check_path(char *path, char *cmds)
+void	check_path(char *path)
 {
 	if (path == NULL)
 	{
 		write(2, "command not found\n", 18);
-		free(cmds);
 		exit(EXIT_FAILURE);
 	}
 }
 
 //check if the command start with /
-void	check_cmds(char **cmds)
+void	check_cmd(char *cmd)
 {
 	int	i;
 
 	i = 0;
-	while (cmds[0][i])
+	while (cmd[i])
 	{
-		if (cmds[0][i] == '/')
+		if (cmd[i] == '/')
 		{
 			write(2, "No such file or directory\n", 27);
+			free(cmd);
 			exit(EXIT_FAILURE);
 		}
 		i++;

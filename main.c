@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 11:41:21 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/30 15:59:38 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/30 16:12:17 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	main(int argc, char **argv, char **envp)
 		child_process(data, env);
 	parent_process(data, env);
 	free_cmds(&data);
-	free_env(env);
+	free_tab(env);
 	free_path(&data);
 	return (0);
 }

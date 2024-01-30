@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 12:07:19 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/30 14:33:08 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/30 16:21:33 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void	check_if_dir(char *cmd)
 	{
 		close (dir);
 		write(2, "No such file or directory\n", 27);
+		free(cmd);
 		exit(EXIT_FAILURE);
 	}
 }
