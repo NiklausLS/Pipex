@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 11:42:45 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/30 16:12:11 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/30 16:28:18 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,11 @@ int		check_argc(int argc);
 int		check_infile(char *file);
 int		check_outfile(char *file);
 void	check_if_dir(char *cmd);
-char	**get_env_path(char **envp);
-char	*get_path(char *cmd, char **env);
 void	check_cmd(char *cmd);
 void	check_path(char *path);
+char	**get_env_path(char **envp);
+char	*get_path(char *cmd, char **env);
+
 void	child_process(t_p data, char **env);
 void	parent_process(t_p data, char **env);
 
