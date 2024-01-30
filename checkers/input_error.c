@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 12:07:19 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/30 16:30:29 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/30 17:00:41 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ int	check_infile(char *file)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 	{
-		perror("Error");
-		//write(2, "infile: No such file or directory\n", 35);
+		write(2, "Infile: No such file or directory\n", 35);
 		exit(EXIT_FAILURE);
 	}
 	return (fd);
