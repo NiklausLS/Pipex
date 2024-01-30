@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 19:25:14 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/30 13:50:10 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/30 14:14:05 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,25 +74,25 @@ void	check_path(char *path, char *cmds)
 {
 	if (path == NULL)
 	{
-		//perror("command not found\n");
 		write(2, "command not found\n", 18);
 		free(cmds);
 		exit(EXIT_FAILURE);
 	}
 }
 
-//check if the command is empty
 //check if the command start with /
 void	check_cmds(char **cmds)
 {
-	/*if (cmds == NULL || cmds[0] == NULL)
+	int	i;
+
+	i = 0;
+	while (cmds[0][i])
 	{
-		write(2, "command not found\n", 18);
-		exit(EXIT_FAILURE);
-	}*/
-	if (cmds[0][0] == '/')
-	{
-		write(2, "No such file or directory\n", 27);
-		exit(EXIT_FAILURE);
+		if (cmds[0][i] == '/')
+		{
+			write(2, "No such file or directory\n", 27);
+			exit(EXIT_FAILURE);
+		}
+		i++;
 	}
 }
