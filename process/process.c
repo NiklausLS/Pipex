@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 01:29:35 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/30 16:28:29 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/30 16:41:07 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ void	child_process(t_p data, char **env)
 	if (execve(data.path1, data.cmd1, env) == -1)
 	{
 		write(2, "Error : execve\n", 16);
-		free(data.path1);
+		free_cmds(&data);
+		free_tab(env);
+		free_path(&data);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -44,7 +46,9 @@ void	parent_process(t_p data, char **env)
 	if (execve(data.path2, data.cmd2, env) == -1)
 	{
 		write(2, "Error : execve\n", 16);
-		free(data.path2);
+		free_cmds(&data);
+		free_tab(env);
+		free_path(&data);
 		exit(EXIT_FAILURE);
 	}
 }
