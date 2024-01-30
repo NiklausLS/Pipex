@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 12:07:19 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/19 16:15:33 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/30 13:34:36 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,18 @@ int	check_outfile(char *file)
 		exit(EXIT_FAILURE);
 	}
 	return (fd);
+}
+
+//check if the command is a directory
+void	check_if_dir(char *cmd)
+{
+	int	dir;
+
+	dir = open(cmd, O_DIRECTORY);
+	if (dir != -1)
+	{
+		close (dir);
+		write(2, "No such file or directory\n", 27);
+		exit(EXIT_FAILURE);
+	}
 }
