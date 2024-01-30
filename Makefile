@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makepipex                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/07/17 11:25:21 by nileempo          #+#    #+#              #
-#    Updated: 2023/12/11 14:39:55 by nileempo         ###   ########.fr        #
+#    Created: 2024/01/30 22:53:55 by nileempo          #+#    #+#              #
+#    Updated: 2024/01/30 22:54:34 by nileempo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ HEADER = pipex.h
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra #-fsanitize=address
 
 RM = rm -f
 
