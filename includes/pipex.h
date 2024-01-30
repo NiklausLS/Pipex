@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 11:42:45 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/30 13:25:07 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/30 15:58:39 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,14 @@ typedef struct s_p
 	pid_t	pid;
 	char	**cmd1;
 	char	**cmd2;
-	char	*path;
+	char	*path1;
+	char	*path2;
 }	t_p;
 
-void	init_cmds(char **argv, t_p *data);
+void	init_struct(char **argv, t_p *data);
+void	free_cmds(t_p *data);
+void	free_env(char **env);
+void	free_path(t_p *data);
 
 int		check_argc(int argc);
 int		check_infile(char *file);
