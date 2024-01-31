@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 19:25:14 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/30 16:22:48 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/02/01 00:51:42 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	check_path(char *path)
 {
 	if (path == NULL)
 	{
-		write(2, "command not found\n", 18);
+		write(2, "No such file or directory\n", 27);
 		exit(EXIT_FAILURE);
 	}
 }

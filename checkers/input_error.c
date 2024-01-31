@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 12:07:19 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/30 17:00:41 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/31 22:29:03 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,7 @@ int	check_infile(char *file)
 
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-	{
 		write(2, "Infile: No such file or directory\n", 35);
-		exit(EXIT_FAILURE);
-	}
 	return (fd);
 }
 
@@ -44,10 +41,7 @@ int	check_outfile(char *file)
 
 	fd = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	if (fd == -1)
-	{
 		write(2, "Error : open outfile\n", 21);
-		exit(EXIT_FAILURE);
-	}
 	return (fd);
 }
 

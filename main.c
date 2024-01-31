@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 11:41:21 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/30 16:54:03 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/02/01 00:37:07 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int argc, char **argv, char **envp)
 	}
 	if (data.pid == 0)
 		child_process(data, env);
-	else
-		parent_process(data, env);
+	waitpid(data.pid, NULL, 0);
+	parent_process(data, env);
 	return (0);
 }

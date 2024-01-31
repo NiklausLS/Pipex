@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 01:29:35 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/30 16:41:07 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/01/31 22:48:21 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 //close fd[0] (reading) to avoid issues
 void	child_process(t_p data, char **env)
 {
+	if (data.infile_fd == -1)
+		exit(EXIT_FAILURE);
 	data.path1 = get_path(data.cmd1[0], env);
 	check_path(data.path1);
 	dup2(data.infile_fd, 0);
@@ -38,6 +40,8 @@ void	child_process(t_p data, char **env)
 //close fd[1] (writing) to avoid issues
 void	parent_process(t_p data, char **env)
 {
+	if (data.outfile_fd == -1)
+		exit(EXIT_FAILURE);
 	data.path2 = get_path(data.cmd2[0], env);
 	check_path(data.path2);
 	dup2(data.outfile_fd, 1);
