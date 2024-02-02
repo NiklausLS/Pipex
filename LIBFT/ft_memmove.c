@@ -6,12 +6,11 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 10:48:04 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/09 13:23:19 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/02/02 15:33:58 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-/*#include <stdio.h>*/
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
