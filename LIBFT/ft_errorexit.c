@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_errorexit.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 11:41:21 by nileempo          #+#    #+#             */
-/*   Updated: 2024/02/02 15:29:33 by nileempo         ###   ########.fr       */
+/*   Created: 2024/02/02 07:44:56 by nileempo          #+#    #+#             */
+/*   Updated: 2024/02/02 14:34:22 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pipex.h"
+#include "../includes/libft.h"
 
-int	main(int argc, char **argv, char **envp)
+//print an error msg or stdr and exit
+void	ft_errorexit(char *str)
 {
-	t_p		data;
-	char	**env;
-
-	check_argc(argc);
-	env = get_env_path(envp);
-	if (pipe(data.fd) == -1)
-		ft_errorexit("Error : pipe\n");
-	data.pid = fork();
-	if (data.pid == -1)
-		ft_errorexit("Error : pid\n");
-	if (data.pid == 0)
-		child_process(data, env, argv);
-	waitpid(data.pid, NULL, 0);
-	parent_process(data, env, argv);
-	return (0);
+	ft_putstr_fd(str, 2);
+	exit(EXIT_FAILURE);
 }

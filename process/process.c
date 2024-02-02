@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 01:29:35 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/31 22:48:21 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/02/02 15:23:53 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 //takes stin and redirect it to my new infile fd
 //takes stdout and redirect it to my fd[1] (writing)
 //close fd[0] (reading) to avoid issues
-void	child_process(t_p data, char **env)
+void	child_process(t_p data, char **env, char **argv)
 {
-	if (data.infile_fd == -1)
-		exit(EXIT_FAILURE);
+	data.infile_fd = check_infile(argv[1]);
+	data.cmd1 = ft_split(argv[2], ' ');
 	data.path1 = get_path(data.cmd1[0], env);
 	check_path(data.path1);
 	dup2(data.infile_fd, 0);
@@ -38,10 +38,10 @@ void	child_process(t_p data, char **env)
 //takes stdout and redirect it to my new outfile fd
 //takes stdin and redirect it to my fd[0] (reading)
 //close fd[1] (writing) to avoid issues
-void	parent_process(t_p data, char **env)
+void	parent_process(t_p data, char **env, char **argv)
 {
-	if (data.outfile_fd == -1)
-		exit(EXIT_FAILURE);
+	data.outfile_fd = check_outfile(argv[4]);
+	data.cmd2 = ft_split(argv[3], ' ');
 	data.path2 = get_path(data.cmd2[0], env);
 	check_path(data.path2);
 	dup2(data.outfile_fd, 1);

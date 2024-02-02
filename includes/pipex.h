@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 11:42:45 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/30 16:28:18 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/02/02 13:21:43 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	check_path(char *path);
 char	**get_env_path(char **envp);
 char	*get_path(char *cmd, char **env);
 
-void	child_process(t_p data, char **env);
-void	parent_process(t_p data, char **env);
+void	child_process(t_p data, char **env, char **argv);
+void	parent_process(t_p data, char **env, char **argv);
 
 #endif
