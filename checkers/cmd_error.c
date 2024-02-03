@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 19:25:14 by nileempo          #+#    #+#             */
-/*   Updated: 2024/02/03 17:19:33 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/02/03 18:23:36 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	**get_env_path(char **envp)
 	while (env[i])
 	{
 		tmp = env[i];
-		env[i] = ft_strjoin(env[i], "/");
+		env[i] = ft_strjoin(tmp, "/");
 		free(tmp);
 		i++;
 	}

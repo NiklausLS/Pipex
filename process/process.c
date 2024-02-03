@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 01:29:35 by nileempo          #+#    #+#             */
-/*   Updated: 2024/02/03 17:56:53 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/02/03 18:22:21 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ void	child_process(t_p *data, char **env, char **argv)
 	{
 		write(2, "command not found\n", 19);
 		free_cmd1(data);
-		//free_tab(env);
-		//free_path(data);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -51,8 +49,6 @@ void	parent_process(t_p *data, char **env, char **argv)
 	{
 		write(2, "command not found\n", 19);
 		free_cmd2(data);
-		//free_tab(env);
-		//free_path(data);
 		exit(EXIT_FAILURE);
 	}
 }
