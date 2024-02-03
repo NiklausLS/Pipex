@@ -6,26 +6,26 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 22:36:49 by nileempo          #+#    #+#             */
-/*   Updated: 2024/02/02 14:01:46 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/02/03 17:46:28 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
-/*
-void	init_struct(char **argv, t_p *data)
+
+void	init_struct(t_p *data)
 {
-	data->cmd1 = ft_split(argv[2], ' ');
-	data->cmd2 = ft_split(argv[3], ' ');
+	data->cmd1 = NULL;
+	data->cmd2 = NULL;
 	data->infile_fd = -1;
 	data->outfile_fd = -1;
 	data->fd[0] = -1;
-	data->fd[0] = -1;
+	data->fd[1] = -1;
 	data->pid = -1;
 	data->path1 = NULL;
 	data->path2 = NULL;
-}*/
+}
 
-void	free_cmds(t_p *data)
+void	free_cmd1(t_p *data)
 {
 	int	i;
 
@@ -38,8 +38,13 @@ void	free_cmds(t_p *data)
 			i++;
 		}
 		free(data->cmd1);
-		data->cmd1 = NULL;
 	}
+}
+
+void	free_cmd2(t_p *data)
+{
+	int	i;
+
 	i = 0;
 	if (data->cmd2 != NULL)
 	{

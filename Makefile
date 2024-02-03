@@ -6,7 +6,7 @@
 #    By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 22:53:55 by nileempo          #+#    #+#              #
-#    Updated: 2024/01/30 22:54:34 by nileempo         ###   ########.fr        #
+#    Updated: 2024/02/03 17:14:06 by nileempo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ HEADER = pipex.h
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra #-fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -fsanitize=address
 
 RM = rm -f
 

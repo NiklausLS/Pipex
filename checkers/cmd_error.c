@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 19:25:14 by nileempo          #+#    #+#             */
-/*   Updated: 2024/02/02 15:08:27 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/02/03 17:19:33 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ char	*get_path(char *cmd, char **envp)
 void	check_path(char *path)
 {
 	if (path == NULL)
-		ft_errorexit("No such file or directory\n");
+		ft_errorexit("command not found\n");
 }
 
 //check if the command get a /
