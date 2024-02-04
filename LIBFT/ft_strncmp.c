@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nileempo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:16:44 by nileempo          #+#    #+#             */
-/*   Updated: 2022/11/16 15:21:24 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/02/04 22:54:59 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-//#include <stdio.h>
+#include "includes/libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
@@ -25,13 +24,3 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	else
 		return (0);
 }
-
-/*int main()
-{
-	char *s1 = "test";
-	char *s2 = "";
-	size_t n = 3;
-
-	printf("Ma fonction : %d\n", ft_strncmp(s1, s2, n));
-	printf("Vraie fonction : %d\n", strncmp(s1, s2, n));
-}*/

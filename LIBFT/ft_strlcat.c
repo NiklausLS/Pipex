@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nileempo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 08:43:25 by nileempo          #+#    #+#             */
-/*   Updated: 2022/11/21 14:35:56 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/02/04 22:59:57 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-#include "libft.h"
+#include "includes/libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
@@ -34,17 +33,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dst[dst_len + i] = '\0';
 	return (dst_len + src_len);
 }
-/*
-int main()
-{
-	char dst[42] = "";
-	char dst2[42] = "";
-	char *src = "123";
-	size_t size = 0;
-
-	printf("La fonction renvoie : %lu\n", strlcat(dst, src, size));
-	printf("Ma fonction renvoie : %lu\n", ft_strlcat(dst2, src, size));
-	printf("DST =  %s\n", dst);
-	printf("DST2 = %s", dst2);
-	return (0);
-}*/

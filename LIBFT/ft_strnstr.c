@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nileempo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 09:54:04 by nileempo          #+#    #+#             */
-/*   Updated: 2022/11/16 15:40:33 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/02/04 22:59:25 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-#include "libft.h"
+#include "includes/libft.h"
 
 char	*ft_strnstr(const char *big, const char *little, size_t size)
 {
@@ -33,15 +32,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t size)
 	}
 	return (0);
 }
-
-/*int main()
-{
-	char *big = "AAAAAAA";
-	size_t s = ft_strlen(big);
-//	char *little = "abc";
-//	size_t size = 12;
-
-	printf("Vraie fonction : %s\n", strnstr(big, big, s));
-	printf("Ma fonction : %s", ft_strnstr(big, big, s));
-	return (0);
-}*/

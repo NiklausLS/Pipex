@@ -6,12 +6,11 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 13:52:49 by nileempo          #+#    #+#             */
-/*   Updated: 2024/01/08 14:27:38 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/02/04 22:55:32 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-//#include <stdio.h>
+#include "includes/libft.h"
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -30,13 +29,3 @@ char	*ft_strchr(const char *s, int c)
 	}
 	return (0);
 }
-/*
-int main()
-{
-	char *s = "abcdefghijklmnopqrstuvwxyz";
-	int c = 't';
-
-	printf("Vraie fonction : %s\n", strchr(s, c));
-	printf("Ma fonction : %s\n", ft_strchr(s, c));
-	return (0);
-}*/

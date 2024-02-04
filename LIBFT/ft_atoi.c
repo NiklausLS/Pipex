@@ -6,11 +6,11 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 08:55:35 by nileempo          #+#    #+#             */
-/*   Updated: 2024/02/02 15:33:06 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/02/04 22:57:27 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
 int	ft_atoi(const char *str)
 {
@@ -37,12 +37,3 @@ int	ft_atoi(const char *str)
 	}
 	return (res * neg);
 }
-
-/*int main()
-{
-	const char *t = "--123 blabla456";
-	const char *t2 = "--123 blablabla456";
-	printf("Vraie fonction : %d\n", atoi(t));
-	printf("Ma fonction : %d\n", ft_atoi(t2));
-	return (0);
-}*/

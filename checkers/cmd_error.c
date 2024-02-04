@@ -6,29 +6,43 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 19:25:14 by nileempo          #+#    #+#             */
-/*   Updated: 2024/02/03 18:23:36 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/02/05 00:17:43 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pipex.h"
 
-//get path from **envp by checking 5 first char 
-//split the result and add / at the end
-char	**get_env_path(char **envp)
+//get path from envp and return a path to it
+static char	*get_env(char **envp)
 {
 	char	*path;
-	char	*tmp;
-	int		i;
-	char	**env;
 
-	if (envp == NULL || envp[0] == NULL)
+	if (envp == NULL || *envp == NULL)
 		return (NULL);
 	while (*envp != NULL && ft_strncmp(*envp, "PATH=", 5) != 0)
 		envp++;
 	if (*envp == NULL)
 		return (NULL);
 	path = *envp + 5;
+	if (path == NULL)
+		return (NULL);
+	return (path);
+}
+
+//split the result and add / at the end
+char	**split_and_join_path(char **envp)
+{
+	char	*path;
+	char	*tmp;
+	int		i;
+	char	**env;
+
+	path = get_env(envp);
+	if (path == NULL)
+		return (NULL);
 	env = ft_split(path, ':');
+	if (env == NULL || *env == NULL)
+		return (NULL);
 	i = 0;
 	while (env[i])
 	{
@@ -42,7 +56,7 @@ char	**get_env_path(char **envp)
 
 //check env_path to find cmd repertory
 //use access to check if file exist and is accessible
-char	*get_path(char *cmd, char **envp)
+char	*get_path(char *cmd, char **env)
 {
 	char	*path;
 	int		i;
@@ -54,24 +68,17 @@ char	*get_path(char *cmd, char **envp)
 	if (access(&cmd[0], F_OK | X_OK) == 0)
 		return (&cmd[0]);
 	check_cmd(cmd);
-	if (envp == NULL || envp[0] == NULL)
-		return (NULL);
-	while (envp[i])
+	if (env == NULL || env[0] == NULL)
+		ft_errorexit("command not found\n");
+	while (env[i])
 	{
-		path = ft_strjoin(envp[i], cmd);
+		path = ft_strjoin(env[i], cmd);
 		if (access(path, F_OK | X_OK) == 0)
 			return (path);
 		free(path);
 		i++;
 	}
 	return (NULL);
-}
-
-//check if the path exist
-void	check_path(char *path)
-{
-	if (path == NULL)
-		ft_errorexit("command not found\n");
 }
 
 //check if the command get a /
@@ -89,4 +96,14 @@ void	check_cmd(char *cmd)
 		}
 		i++;
 	}
+}
+
+int	if_no_path(char **env, char *cmd)
+{
+	if (!env || !*env)
+	{
+		if (access(cmd, F_OK | X_OK) == 0)
+			return (0);
+	}
+	return (-1);
 }

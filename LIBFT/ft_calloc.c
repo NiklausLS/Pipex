@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nileempo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:03:10 by nileempo          #+#    #+#             */
-/*   Updated: 2022/12/01 10:47:26 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/02/04 22:57:21 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-#include "libft.h"
+#include "includes/libft.h"
 
 void	*ft_calloc(size_t ecount, size_t esize)
 {
@@ -23,25 +22,3 @@ void	*ft_calloc(size_t ecount, size_t esize)
 	ft_bzero(ptr, ecount * esize);
 	return (ptr);
 }
-
-/*
-int	main()
-{
-	char *ptr;
-	char *p;
-
-	ptr = calloc(20, sizeof(int));
-	p = ft_calloc(20, sizeof(int));
-	printf("Vraie fonction : ");
-	if (ptr == NULL)
-		printf("Allocation impossible\n");
-	else
-		printf("Allocation OK\n\n");
-	printf("Ma fonction : ");
-	if (p == NULL)
-		printf("Allocation impossible");
-	else
-		printf("Allocation OK");
-	printf("%s", p);
-	return (0);
-}*/

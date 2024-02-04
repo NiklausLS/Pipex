@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nileempo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 15:49:38 by nileempo          #+#    #+#             */
-/*   Updated: 2022/11/16 15:54:18 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/02/04 22:55:46 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
 void	ft_putstr_fd(char *s, int fd)
 {
@@ -23,12 +23,3 @@ void	ft_putstr_fd(char *s, int fd)
 		i++;
 	}
 }
-/*
-int main()
-{
-	char *s = "test de la fonction";
-	int fd = 1;
-
-	ft_putstr_fd(s, fd);
-	return (0);
-}*/

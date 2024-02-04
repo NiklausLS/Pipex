@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nileempo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 09:25:44 by nileempo          #+#    #+#             */
-/*   Updated: 2022/11/16 09:51:11 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/02/04 22:59:34 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include <stdio.h>
-#include "libft.h"
+#include "includes/libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
@@ -30,13 +29,3 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (0);
 }
-/*
-int main()
-{
-	char *s = "abcdefghijklmnopqrstuvwxyz";
-	int c = 't';
-
-	printf("Vraie fonction : %s\n", strrchr(s, c));
-	printf("Ma fonction : %s", ft_strrchr(s, c));
-	return (0);
-}*/

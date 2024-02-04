@@ -6,12 +6,12 @@
 #    By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/30 22:53:55 by nileempo          #+#    #+#              #
-#    Updated: 2024/02/03 18:25:23 by nileempo         ###   ########.fr        #
+#    Updated: 2024/02/04 22:08:10 by nileempo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS = main.c \
-	commands.c \
+	init_free.c \
 	checkers/input_error.c \
 	checkers/cmd_error.c \
 	process/process.c \
@@ -30,7 +30,7 @@ HEADER = pipex.h
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra #-fsanitize=address
+CFLAGS = -Wall -Werror -Wextra -fsanitize=address
 
 RM = rm -f
 

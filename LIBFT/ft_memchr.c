@@ -6,11 +6,11 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 14:10:52 by nileempo          #+#    #+#             */
-/*   Updated: 2024/02/02 15:33:37 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/02/04 22:56:45 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
@@ -29,10 +29,3 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
-
-/*int main()
-{
-	char s[] = "test de la fonction";
-	printf("Vraie fonction : %s\n", memchr(s, 'a', 20));
-	printf("Ma fonction : %s", ft_memchr(s, 'a', 20));
-}*/

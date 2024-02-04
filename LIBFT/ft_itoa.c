@@ -6,11 +6,11 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 08:56:06 by nileempo          #+#    #+#             */
-/*   Updated: 2024/02/02 15:33:32 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/02/04 22:56:53 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "includes/libft.h"
 
 static int	ft_len(int n)
 {
@@ -55,13 +55,3 @@ char	*ft_itoa(int n)
 		str[0] = '-';
 	return (str);
 }
-/*
-int main()
-{
-	int n = 0;
-	int neg = -999999;
-
-	printf("%s et ", ft_itoa(n));
-	printf("%s", ft_itoa(neg));
-	return (0);
-}*/

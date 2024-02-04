@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nileempo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 10:50:53 by nileempo          #+#    #+#             */
-/*   Updated: 2022/11/14 11:09:54 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/02/04 22:56:38 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-//#include <stdio.h>
+#include "includes/libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
@@ -30,14 +29,3 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
-
-/*int main()
-{
-	char *t = "test";
-	char *t2 = "test";
-	size_t n = 3;
-
-	printf("Ma fonction : %d\n", ft_memcmp(t, t2, n));
-	printf("Vraie fonction : %d\n", memcmp(t, t2, n));
-	return (0);
-}*/
