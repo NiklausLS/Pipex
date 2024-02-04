@@ -6,28 +6,11 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 11:41:21 by nileempo          #+#    #+#             */
-/*   Updated: 2024/02/05 00:18:18 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/02/05 00:27:17 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-
-void	print_split(char **split)
-{
-	if (split == NULL || *split == NULL)
-	{
-		printf("split is null\n");
-		return;
-	}
-	int i = 0;
-	while (split[i] != NULL)
-	{
-		printf("%d: %s\n", i + 1, split[i]);
-		free(split[i]);
-		i++;
-	}
-	free(split);
-}
 
 int	main(int argc, char **argv, char **envp)
 {

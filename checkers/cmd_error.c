@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/15 19:25:14 by nileempo          #+#    #+#             */
-/*   Updated: 2024/02/05 00:17:43 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/02/05 00:22:48 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char	**split_and_join_path(char **envp)
 
 //check env_path to find cmd repertory
 //use access to check if file exist and is accessible
-char	*get_path(char *cmd, char **env)
+char	*check_path(char *cmd, char **env)
 {
 	char	*path;
 	int		i;
@@ -96,14 +96,4 @@ void	check_cmd(char *cmd)
 		}
 		i++;
 	}
-}
-
-int	if_no_path(char **env, char *cmd)
-{
-	if (!env || !*env)
-	{
-		if (access(cmd, F_OK | X_OK) == 0)
-			return (0);
-	}
-	return (-1);
 }

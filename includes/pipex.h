@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 11:42:45 by nileempo          #+#    #+#             */
-/*   Updated: 2024/02/05 00:17:55 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/02/05 00:23:00 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,8 @@ int		check_outfile(char *file);
 void	check_if_dir(char *cmd);
 void	check_cmd(char *cmd);
 char	**split_and_join_path(char **envp);
-char	*get_path(char *cmd, char **env);
-int		if_no_path(char **env, char *cmd);
+char	*check_path(char *cmd, char **env);
 void	child_process(t_p *data, char **env, char **argv);
 void	parent_process(t_p *data, char **env, char **argv);
-void	print_split(char **split);
 
 #endif
