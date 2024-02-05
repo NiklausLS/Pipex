@@ -6,7 +6,7 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 01:29:35 by nileempo          #+#    #+#             */
-/*   Updated: 2024/02/05 00:22:33 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/02/05 15:32:16 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 //close fd[0] (reading) to avoid issues
 void	child_process(t_p *data, char **env, char **argv)
 {
-	data->infile_fd = check_infile(argv[1]);
 	data->cmd1 = ft_split(argv[2], ' ');
 	data->path1 = check_path(data->cmd1[0], env);
 	dup2(data->infile_fd, 0);

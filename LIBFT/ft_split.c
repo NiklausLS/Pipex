@@ -6,12 +6,11 @@
 /*   By: nileempo <nileempo@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 13:22:18 by nileempo          #+#    #+#             */
-/*   Updated: 2024/02/04 23:40:31 by nileempo         ###   ########.fr       */
+/*   Updated: 2024/02/05 12:25:53 by nileempo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
-#include <stdio.h>
 
 static int	ft_str_count(char const *s, char c)
 {
